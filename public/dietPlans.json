@@ -1,0 +1,30 @@
+[
+    {
+      "image": "https://i.ibb.co/M9XmFkL/photo-1540073280202-6e5c781befec-ixid-Mnwx-Mj-A3f-DB8-1.jpg",
+      "name":"Intermittent Diet",
+      "duration": "1 yr",
+      "description": "Intermittent fasting has been linked to anti-aging effects, increased insulin sensitivity, improved brain health, reduced inflammation, and many other benefits,it makes strong your heart.",
+      "price": 90
+    },
+    {
+      "image": "https://media.istockphoto.com/photos/healthy-lunch-table-scene-with-nutritious-lettuce-wraps-buddha-bowl-picture-id1212768319?s=612x612",
+      "name": "Plant-based diets",
+      "duration": "1 yr",
+      "description": "Plant-based diets have been linked to many other benefits, such as a reduced risk of chronic conditions like heart disease, certain cancers, and diabetes. They can also be more environmentally sustainable than meat-based diets",
+      "price": 85
+    },
+    {
+      "image": "https://media.istockphoto.com/photos/healthy-food-for-lower-cholesterol-and-heart-care-shot-on-wooden-picture-id1279763992?b=1&k=20&m=1279763992&s=170667a&w=0&h=PP9Z4NeTcx5iZodFRxA4bbRG7QgXef9LCQdIh5lr7oY=",
+      "name": "Low-carb diets",
+      "duration": "6 month",
+      "description": "Research suggests that low-carb diets may reduce risk factors for heart disease, including high cholesterol and blood pressure levels. They may also improve blood sugar and insulin levels in people with type 2 diabetes",
+      "price": 50
+    },
+    {
+      "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGlldHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      "name": "The paleo diet",
+      "duration": "1 month",
+      "description": "Following the paleo diet may reduce several heart disease risk factors, such as high blood pressure, cholesterol, and triglyceride levels",
+      "price": 20
+    }
+  ]
