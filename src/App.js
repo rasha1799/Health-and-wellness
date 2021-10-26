@@ -9,7 +9,7 @@ import AuthProvider from './Contexts/AuthProvider';
 import Footer from '../src/pages/Home/Home/Footer/Footer';
 import ServiceDetail from './pages/ServiceDetail/ServiceDetail';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
-
+import Trainers from './pages/Home/Home/Trainers/Trainers'
 function App() {
   return (
     <div className="App">
@@ -30,6 +30,7 @@ function App() {
         </Route>
         <Route path="/register"><Register></Register></Route>
         <PrivateRoute path="/service/:serviceDetail"><ServiceDetail></ServiceDetail></PrivateRoute>
+        <Route path="/trainers"><Trainers></Trainers></Route>
         <Route path="*"><NotFound></NotFound></Route>
       </Switch>
       <Footer></Footer>

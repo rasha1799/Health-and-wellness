@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom'
 import useAuth from '../../hooks/useAuth';
 import './Login.css'
@@ -9,6 +9,26 @@ const Login = () => {
     const location = useLocation();
     const history = useHistory();
     const redirect_uri = location.state?.from || '/home';
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+ 
+  
+  const handleEmailChange = e => {
+    setEmail(e.target.value);
+  }
+
+  const handlePasswordChange = e => {
+    setPassword(e.target.value)
+  }
+  const processLogin = (email, password) => {
+    signInUsingEmailAndPassword()
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        
+      })
+      
+  }
 
 
     const handleGoogleLogin = () => {
@@ -22,12 +42,12 @@ const Login = () => {
         <div className="login-form mb-5">
             <div>
                 <h2>Login</h2>
-                <form>
-                    <input type="email" name="" id="" placeholder="Your Email" />
+                <form onSubmit={processLogin}>
+                    <input onBlur={handleEmailChange} type="email" name="" id="" placeholder="Your Email" />
                     <br />
-                    <input type="password" placeholder="Password" name="" id="" />
+                    <input onBlur={handlePasswordChange}    type="password" placeholder="password" name="" id="" />
                     <br /><br />
-                    <input onBlur={signInUsingEmailAndPassword} style={{backgroundColor:'rgba(0, 238, 255, 0.562)',textAlign:'center',fontWeight:'bold'}} placeholder="submit" value="Submit" />
+                    <input type="submit" value="Submit" />
                 </form>
                 <p>new to wellness? <Link to="/register">Create Account</Link></p>
                 <div>-------or----------</div>
