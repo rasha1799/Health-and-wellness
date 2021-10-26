@@ -10,6 +10,7 @@ import Footer from '../src/pages/Home/Home/Footer/Footer';
 import ServiceDetail from './pages/ServiceDetail/ServiceDetail';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Trainers from './pages/Home/Home/Trainers/Trainers'
+import MemberShip from './pages/MemberShip/MemberShip';
 function App() {
   return (
     <div className="App">
@@ -29,8 +30,9 @@ function App() {
 <Login></Login>
         </Route>
         <Route path="/register"><Register></Register></Route>
+        <PrivateRoute path="/memberShip"><MemberShip></MemberShip></PrivateRoute>
         <PrivateRoute path="/service/:serviceDetail"><ServiceDetail></ServiceDetail></PrivateRoute>
-        <Route path="/trainers"><Trainers></Trainers></Route>
+        <PrivateRoute path="/trainers"><Trainers></Trainers></PrivateRoute>
         <Route path="*"><NotFound></NotFound></Route>
       </Switch>
       <Footer></Footer>
