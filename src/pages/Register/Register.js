@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory} from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import processLogin from '../Login/Login'
 
 const Register = () => {
-    const {createUserWithEmailAndPassword,verifyEmail}=useAuth();
+    const {createUserUsingEmail,verifyEmail,signInUsingGoogle}=useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLogin, setIsLogin] = useState(false);
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home';
     
     const handleEmailChange = e => {
         setEmail(e.target.value);
@@ -19,7 +22,21 @@ const Register = () => {
       }
 
     const handleRegistration = e => {
+
         e.preventDefault();
+        const registerNewUser = (email, password) => {
+          createUserUsingEmail()
+            .then(result => {
+              const user = result.user;
+              console.log(user);
+              setError('');
+              verifyEmail();
+          
+            })
+            .catch(error => {
+              setError(error.message);
+            })
+        }
         console.log(email, password);
         if (password.length < 6) {
           setError('Password Must be at least 6 characters long.')
@@ -36,22 +53,17 @@ const Register = () => {
         else {
           registerNewUser(email, password);
         }
+        
     
       }
-      
-  const registerNewUser = (email, password) => {
-    createUserWithEmailAndPassword()
-      .then(result => {
-        const user = result.user;
-        console.log(user);
-        setError('');
-        verifyEmail();
-    
-      })
-      .catch(error => {
-        setError(error.message);
-      })
-  }
+      const handleGoogleLogin = () => {
+        signInUsingGoogle()
+            .then(result =>history.push(redirect_uri)).catch(error=>{
+              console.log(error);
+            })
+    }
+
+  
     return (
         <div className="login-form">
             <div>
@@ -67,7 +79,7 @@ const Register = () => {
                 </form>
                 <p>Already have an account? <Link to="/login">Login</Link></p>
                 <div>----------or-------------</div>
-                <button className="btn-regular">Google Sign In</button>
+                <button onClick={handleGoogleLogin} className="btn-regular">Google Sign In</button>
             </div>
             <div><div className="row mx-5 mb-3 text-danger">{error}</div></div>
         </div>

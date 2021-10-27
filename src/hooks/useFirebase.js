@@ -16,42 +16,42 @@ const useFirebase = () => {
         setIsLoading(true);
         const googleProvider = new GoogleAuthProvider();
 
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-            .finally(() => setIsLoading(false));
+       return  signInWithPopup(auth, googleProvider)
+            // .then(result => {
+            //     setUser(result.user);
+            // })
+            // .finally(() => setIsLoading(false));
     }
     const createUserUsingEmail=(email,password)=>{
             setIsLoading(true);
             
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+// const auth = getAuth();
+return createUserWithEmailAndPassword(auth, email, password)
+  // .then((userCredential) => {
+  //   // Signed in 
+  //   const user = userCredential.user;
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  //   // ..
+  // });
 
 
     }
     const signInUsingEmailAndPassword=(email, password) =>{
         const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+return signInWithEmailAndPassword(auth, email, password)
+  // .then((userCredential) => {
+  //   // Signed in 
+  //   const user = userCredential.user;
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   const errorCode = error.code;
+  //   const errorMessage = error.message;
+  // });
     }
 
     // observe user state change
@@ -95,7 +95,7 @@ signInWithEmailAndPassword(auth, email, password)
         signInUsingGoogle,
         logOut,
         signInUsingEmailAndPassword,
-        createUserWithEmailAndPassword,
+        createUserUsingEmail,
         verifyEmail,
         handleResetPassword }
   

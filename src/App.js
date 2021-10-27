@@ -31,7 +31,7 @@ function App() {
         </Route>
         <Route path="/register"><Register></Register></Route>
         <PrivateRoute path="/memberShip"><MemberShip></MemberShip></PrivateRoute>
-        <PrivateRoute path="/service/:serviceDetail"><ServiceDetail></ServiceDetail></PrivateRoute>
+        <PrivateRoute path="/service/:name"><ServiceDetail></ServiceDetail></PrivateRoute>
         <PrivateRoute path="/trainers"><Trainers></Trainers></PrivateRoute>
         <Route path="*"><NotFound></NotFound></Route>
       </Switch>
