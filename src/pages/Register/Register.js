@@ -25,7 +25,7 @@ const Register = () => {
 
         e.preventDefault();
         const registerNewUser = (email, password) => {
-          createUserUsingEmail()
+          createUserUsingEmail(email,password)
             .then(result => {
               const user = result.user;
               console.log(user);

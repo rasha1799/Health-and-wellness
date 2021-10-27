@@ -25,33 +25,14 @@ const useFirebase = () => {
     const createUserUsingEmail=(email,password)=>{
             setIsLoading(true);
             
-// const auth = getAuth();
+ 
 return createUserWithEmailAndPassword(auth, email, password)
-  // .then((userCredential) => {
-  //   // Signed in 
-  //   const user = userCredential.user;
-  //   // ...
-  // })
-  // .catch((error) => {
-  //   const errorCode = error.code;
-  //   const errorMessage = error.message;
-  //   // ..
-  // });
-
 
     }
     const signInUsingEmailAndPassword=(email, password) =>{
         const auth = getAuth();
 return signInWithEmailAndPassword(auth, email, password)
-  // .then((userCredential) => {
-  //   // Signed in 
-  //   const user = userCredential.user;
-  //   // ...
-  // })
-  // .catch((error) => {
-  //   const errorCode = error.code;
-  //   const errorMessage = error.message;
-  // });
+  
     }
 
     // observe user state change
