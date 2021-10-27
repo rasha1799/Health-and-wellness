@@ -30,7 +30,7 @@ return createUserWithEmailAndPassword(auth, email, password)
 
     }
     const signInUsingEmailAndPassword=(email, password) =>{
-        const auth = getAuth();
+       
 return signInWithEmailAndPassword(auth, email, password)
   
     }
@@ -61,10 +61,18 @@ return signInWithEmailAndPassword(auth, email, password)
           console.log(result);
         })
     }
-    const setUserName = () => {
-      updateProfile(auth.currentUser)
-        .then(result => { })
-    }
+    const updateName= (name)=> {
+        updateProfile(auth.currentUser, {
+          displayName: name
+        }).then(() => {
+          const newUser={...user, displayName: name}
+         setUser(newUser)
+     // ...
+  }).catch((error) => {
+    // An error occurred
+    // ...
+  });
+}      
     const handleResetPassword = () => {
       sendPasswordResetEmail(auth, user.email)
         .then(result => { })
@@ -74,11 +82,14 @@ return signInWithEmailAndPassword(auth, email, password)
         user,
         isLoading,
         signInUsingGoogle,
+        setUser,
         logOut,
         signInUsingEmailAndPassword,
         createUserUsingEmail,
         verifyEmail,
-        handleResetPassword }
+        handleResetPassword,
+    updateName,
+setIsLoading }
   
 }
 

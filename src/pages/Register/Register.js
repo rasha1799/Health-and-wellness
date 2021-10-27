@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useHistory} from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import processLogin from '../Login/Login'
+import handleLogin from '../Login/Login'
 
 const Register = () => {
-    const {createUserUsingEmail,verifyEmail,signInUsingGoogle}=useAuth();
+    const {createUserUsingEmail,verifyEmail,signInUsingGoogle,setUser}=useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -27,10 +27,13 @@ const Register = () => {
         const registerNewUser = (email, password) => {
           createUserUsingEmail(email,password)
             .then(result => {
-              const user = result.user;
-              console.log(user);
+             setUser(result.user);
+              
               setError('');
               verifyEmail();
+              history.push(redirect_uri)
+              
+
           
             })
             .catch(error => {
@@ -48,7 +51,7 @@ const Register = () => {
         }
     
         if (isLogin) {
-          processLogin(email, password);
+          handleLogin(email, password);
         }
         else {
           registerNewUser(email, password);
